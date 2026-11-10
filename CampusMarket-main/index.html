@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusMarket | UCC Student Marketplace</title>
+    <!--external icon formattingx-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .navbar {
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #245b37;
+        }
+
+        .navbar-brand:hover {
+            color: #245b37;
+        }
+
+        .navbar-brand span {
+            color: #e99a43;
+        }
+
+        .ucc-nav-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #ffffff;
+            padding: 3px;
+            border: 1px solid #e5ece8;
+            flex-shrink: 0;
+        }
+
+        .navbar .nav-link {
+            font-weight: 500;
+            margin: 0 9px;
+        }
+
+        .navbar .nav-link:hover {
+            color: #245b37;
+        }
+
+        .navbar .login-btn {
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        #navLogoutButton {
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-nav {
+                padding: 15px 0;
+            }
+
+            .navbar .login-btn,
+            #navLogoutButton {
+               
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+
+            <!-- UCC LOGO AND CAMPUSMARKET NAME -->
+            <a class="navbar-brand" href="index.html">
+                <img
+                    src="/assets/logo.png"
+                    alt="University of Cape Coast Logo"
+                    class="ucc-nav-logo"
+                >
+                Campus<span>Market.</span>
+            </a>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- NAVIGATION LINKS -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Sell an Item</a>
+                    </li>
+
+                </ul>
+
+                <!-- LOGIN AND LOGOUT BUTTONS (UPDATED) -->
+                <div class="d-flex align-items-center gap-2">
+                    
+                    <!-- Shows when LOGGED OUT -->
+                    <div id="navLoggedOut">
+                        <a href="login.html" class="btn login-btn">Login / Sign Up</a>
+                    </div>
+
+                    <!-- Shows when LOGGED IN (Hidden by default) -->
+                    <div id="navLoggedIn" class="d-none d-flex align-items-center gap-2">
+                        <span class="fw-bold text-dark" id="navUserName">User</span>
+                        <button id="navLogoutButton" class="btn btn-outline-danger">Logout</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-7">
+
+                    <p class="hero-label">WELCOME TO CAMPUS MARKET</p>
+
+                    <h1>
+                        Buy, Sell & Give Your
+                        <span>Student Items</span>
+                        a Second Life.
+                    </h1>
+
+                    <p class="hero-description">
+                        Discover affordable items from fellow students.
+                        Sell what you no longer need or donate to someone
+                        who needs it.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="shop.html" class="btn primary-btn">
+                            Explore Products
+                        </a>
+
+                        <a href="sell.html" class="btn secondary-btn">
+                            Start Selling
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="hero-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900"
+                            alt="Student working with a laptop"
+                        >
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="What are you looking for?"
+                >
+
+                <button class="btn primary-btn" id="searchButton">
+                    Search
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">BROWSE BY CATEGORY</p>
+                    <h2>Explore Categories</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-6 col-md-3">
+                    <a href="shop.html?category=Books" class="category-card">
+                        <div class="category-icon"><i class="fas fa-book"></i></div>
+                        <h5>Books</h5>
+                        <p>Textbooks and notes</p>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="shop.html?category=Electronics" class="category-card">
+                        <div class="category-icon"><i class="fas fa-laptop"></i></div>
+                        <h5>Electronics</h5>
+                        <p>Phones and laptops</p>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="shop.html?category=Fashion" class="category-card">
+                        <div class="category-icon"><i class="fas fa-tshirt"></i></div>
+                        <h5>Fashion</h5>
+                        <p>Clothes and shoes</p>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <a href="shop.html?category=Home" class="category-card">
+                        <div class="category-icon"><i class="fas fa-home"></i></div>
+                        <h5>Home</h5>
+                        <p>Fans, kettles and more</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="products-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">STUDENT MARKETPLACE</p>
+                    <h2>Featured Products</h2>
+                </div>
+
+                <a href="shop.html" class="view-all">
+                    View All Products →
+                </a>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- PRODUCT 1 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600"
+                            alt="Stack of books"
+                        >
+
+                        <div class="product-info">
+                            <span class="product-category">Books</span>
+                            <h5>Academic Textbooks</h5>
+                            <p class="product-price">GH₵ 85.00</p>
+
+                            <a href="product.html" class="product-link">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"
+                            alt="Laptop computer"
+                        >
+
+                        <div class="product-info">
+                            <span class="product-category">Electronics</span>
+                            <h5>Used Laptop</h5>
+                            <p class="product-price">GH₵ 2,500.00</p>
+
+                            <a href="product.html" class="product-link">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 3 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"
+                            alt="Pair of sneakers"
+                        >
+
+                        <div class="product-info">
+                            <span class="product-category">Fashion</span>
+                            <h5>Sports Sneakers</h5>
+                            <p class="product-price">GH₵ 180.00</p>
+
+                            <a href="product.html" class="product-link">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 4 -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="product-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600"
+                            alt="Study lamp"
+                        >
+
+                        <div class="product-info">
+                            <span class="product-category">Home</span>
+                            <h5>Study Desk Lamp</h5>
+                            <p class="product-price">FREE / DONATE</p>
+
+                            <a href="product.html" class="product-link">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DONATION SECTION -->
+    <section class="donation-section">
+        <div class="container">
+
+            <h2>Have Something You No Longer Need?</h2>
+
+            <p>
+                Your unused items could make another student's
+                university life easier. Sell them or donate them.
+            </p>
+
+            <a href="sell.html" class="btn donation-btn">
+                List an Item Today
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+
+            <h4>CampusMarket.</h4>
+
+            <p>
+                Connecting students through affordable buying,
+                selling and giving.
+            </p>
+
+            <p class="copyright">
+                © 2026 CampusMarket. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SUPABASE LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- SUPABASE CONNECTION -->
+    <script src="js/supabase.js"></script>
+    
+    <!-- AUTHENTICATION LOGIC -->
+    <script src="js/auth.js"></script>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
