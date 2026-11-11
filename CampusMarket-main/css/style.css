@@ -762,3 +762,107 @@ a { transition: color .2s ease, background .2s ease, transform .2s ease; }
 @media(max-width:991.98px) { .auth-page { grid-template-columns:1fr; } .auth-visual { min-height:310px; padding:28px; } .auth-visual h1 { font-size:2.35rem; } .auth-visual .auth-note { display:none; } .filter-box { position:static; } }
 @media(max-width:767.98px) { .hero-section { padding:54px 0 42px; } .hero-section h1 { font-size:clamp(2.4rem,10vw,3.3rem); letter-spacing:-1.6px; } .hero-image { margin-top:32px; } .hero-image img { height:260px; } .search-section { padding-top:12px; } .section-heading { align-items:flex-start; gap:12px; } .view-all { font-size:.84rem; white-space:nowrap; } .shop-header,.sell-header { padding:44px 0; } .shop-section,.sell-section { padding:32px 0 54px; } .details-image img { height:320px; } .details-title { font-size:2rem; } .shop-search { align-items:stretch; } .shop-search input { width:100%; } }
 @media(max-width:575.98px) { .hero-buttons { flex-direction:column; align-items:stretch; } .hero-buttons .btn { width:100%; margin:0; } .section-heading { flex-direction:column; } .category-card { padding:20px 10px; } .product-card img { height:190px; } .auth-panel { padding:24px 14px; } }
+/* ==========================================
+   CAMPUSMARKET ANIMATIONS & POLISH
+   ========================================== */
+
+/* 1. Smooth Page Load (Fade Up) */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Automatically animate key sections when the page loads */
+.hero-section .row > div,
+.sell-form-container,
+.auth-card,
+.product-details-section .row > div {
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* 2. Smooth Hover Effects for Cards */
+.product-card, 
+.category-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the image zoom inside the card */
+}
+
+/* Lift the card and add a nice shadow on hover */
+.product-card:hover, 
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Zoom the product image slightly on hover */
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+/* 3. Button Interactions */
+.btn, .login-btn, .primary-btn, .secondary-btn {
+    transition: all 0.25s ease-in-out;
+}
+
+.btn:hover, 
+.login-btn:hover, 
+.primary-btn:hover, 
+.secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active, .primary-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* 4. Smooth Transition for Login/Logout Navbar & Forms */
+#navLoggedOut, 
+#navLoggedIn, 
+#authFormsContainer, 
+#userDetailsContainer {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease;
+}
+
+/* 5. Profile Icon Pop-In Animation (Login Page) */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Targets the green user icon on the login profile card */
+#userDetailsContainer .bg-success {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 6. Form Input Focus Effect */
+.form-control, .form-select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(36, 91, 55, 0.15); /* Using your brand green */
+    border-color: #245b37;
+}
