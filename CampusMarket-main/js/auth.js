@@ -28,7 +28,7 @@ const navUserName = document.getElementById("navUserName");
 const navLogoutButton = document.getElementById("navLogoutButton");
 
 // WEBSITE URL
-const WEBSITE_URL = "https://campusmarket-topaz.vercel.app";
+const WEBSITE_URL = "https://campusmarket-vert.vercel.app";
 
 
 // ======================================
